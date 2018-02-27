@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
-
-<table>
+<div class="postBox">
+			<div class="postBoxTop"></div>
+			<div class="postBoxMid">
+				<div class="postBoxMidInner first clearfix">
+<table span class="border border-primary">
+            <div class="row">
+            <div class="col-md-6">
   <thead>
     <tr>
       <th>Title</th>
@@ -13,18 +18,32 @@
   </thead>
 
   <tbody>
-    <% @posts.each do |post| %>
+    <!-- Se mete aquí el formato o donde?-->
+
       <tr>
-        <td><%= post.title %></td>
+
+    <% @posts.each do |post| %>
+      
+        <td><div class="bd-callout bd-callout-info">
+        <div class="alert alert-success" role="alert"><h4>
+        <%= post.title %></h4></td></div>
         <td><%= post.author %></td>
-        <td><%= post.blog_entry %></td>
+        <td><div class="alert alert-warning" role="alert"><%= post.blog_entry %></td></div>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
+
     <% end %>
+    
+
+</table>                    </div>
+          </div>
   </tbody>
-</table>
+           </div>
+           </div>
+          </div>
 
 <br>
 
