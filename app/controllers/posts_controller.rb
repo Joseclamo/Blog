@@ -13,6 +13,10 @@ class PostsController < ApplicationController
     @comment = Comment.new
   end
 
+  def created_at
+    @created_at = Post.created_at
+  end
+
   # GET /posts/new
   def new
     @post = Post.new

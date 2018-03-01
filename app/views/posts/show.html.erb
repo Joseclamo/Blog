@@ -1,17 +1,19 @@
+<% provide(:page_title, @post.title) %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%= @post.title %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong>Autor:</strong>
   <%= @post.author %>
 </p>
 
 <p>
-  <strong>Blog entry:</strong>
+  <strong>Entrada:</strong>
   <%= @post.blog_entry %>
 </p>
 
@@ -22,6 +24,7 @@
 <div id="comments">
   <% @post.comments.each do |comment| %>
     <p>
+      <p><strong>Deja tu opinión!</strong></p>
 	    <%= comment.author %> dijo...<br />
 	    <%= comment.comment_entry %>
 	  </p>

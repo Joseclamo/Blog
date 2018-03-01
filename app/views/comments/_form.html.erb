@@ -10,13 +10,13 @@
       </ul>
     </div>
   <% end %>
-
+  <strong>Deja tu opinión!</strong>
   <div class="field">
-    <%= form.text_field :author, id: :comment_author, placeholder: "Escrito por..." %>
+    <%= form.text_field :author, id: :comment_author, placeholder: "Tu nombre" %>
   </div>
 
   <div class="field">
-    <%= form.text_field :comment_entry, id: :comment_comment_entry, placeholder: "Cuentame algo sabroso" %>
+    <%= form.text_area :comment_entry, id: :comment_comment_entry, placeholder: "Express your mind" %>
   </div>
 
   <div class="field">

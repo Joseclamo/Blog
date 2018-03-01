@@ -1,50 +1,37 @@
+<% provide(:page_title, "All posts") %>
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
-<div class="postBox">
-			<div class="postBoxTop"></div>
-			<div class="postBoxMid">
-				<div class="postBoxMidInner first clearfix">
-<table span class="border border-primary">
-            <div class="row">
-            <div class="col-md-6">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Blog entry</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <!-- Se mete aquí el formato o donde?-->
-
-      <tr>
-
+<div class="row">
     <% @posts.each do |post| %>
-      
-        <td><div class="bd-callout bd-callout-info">
-        <div class="alert alert-success" role="alert"><h4>
-        <%= post.title %></h4></td></div>
-        <td><%= post.author %></td>
-        <td><div class="alert alert-warning" role="alert"><%= post.blog_entry %></td></div>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-      </tr>
-
-    <% end %>
-    
-
-</table>                    </div>
-          </div>
-  </tbody>
-           </div>
-           </div>
-          </div>
-
+      <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3><%= link_to post.title, post %></h3>
+        </div>
+        <div class="card-body">
+          <label for=""><small class="text-muted"> Escrito por <%= post.author %></small></label>
+            <div class="form: {style: 'display:inline-block;'}">             
+              <div class="alert alert-success" role="alert", class="card-text"><%= post.blog_entry %></br></br>
+                <div class="btn-group"> 
+                  <p><%= button_to "Mostrar", post, :class => "btn btn-primary", :method => :get %></p>
+                  <p><%= button_to "Editar", edit_post_path(post), :class => "btn btn-success", :method => :get %></p>
+                  <p><%= button_to 'Borrar', post, :class => "btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                  <p><h6>Creado el día</p><%= post.created_at %></h6>
+                </div></br>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 <br>
-
+<div>
+  <br>
+  <br>
 <%= link_to 'New Post', new_post_path %>
+</div>
