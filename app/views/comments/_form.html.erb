@@ -10,20 +10,21 @@
       </ul>
     </div>
   <% end %>
+
   <strong>Deja tu opinión!</strong>
-  <div class="field">
-    <%= form.text_field :author, id: :comment_author, placeholder: "Tu nombre" %>
+   <div class="form-group">
+    <%= form.text_field :author, placeholder: "Escrito por...", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.text_area :comment_entry, id: :comment_comment_entry, placeholder: "Express your mind" %>
+ <div class="form-group">
+    <%= form.text_area :comment_entry, placeholder: "Express your mind!", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.hidden_field :post_id, value: @post.id %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Enviar", class: "btn btn-secondary" %>
   </div>
 <% end %>
