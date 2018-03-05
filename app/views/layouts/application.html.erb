@@ -30,14 +30,6 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-        </div>
         <div>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -46,28 +38,19 @@
         </div>
         <div>
           <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
       </li>
     </ul>
   </div>
   </a>
 </nav>
+  <div class="float-right">
+    <% if user_signed_in? %>
+      <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary" %> 
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    <% end %>
+  </div>
   <div class="container">
+
     <%= yield %>
   </body>
 </html>

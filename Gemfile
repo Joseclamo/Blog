@@ -57,3 +57,6 @@ gem 'bootstrap', '~> 4.0.0'
 
 #jquery
 gem 'jquery-rails'
+
+#Autentification
+gem 'devise'

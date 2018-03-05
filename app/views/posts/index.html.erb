@@ -12,7 +12,7 @@
             <h3><%= link_to post.title, post %></h3>
           </div>
           <div class="card-body">
-            <label for=""><small class="text-muted"> Escrito por <%= post.author %></small></label>
+            <label for=""><small class="text-muted"> Escrito por <%= post.user.username %></small></label>
             <div class="form: {style: 'display:inline-block;'}">             
               <div class="alert alert-success" role="alert", class="card-text"><%= post.blog_entry %></br></br>
                 <div class="btn-group"> 
@@ -33,7 +33,7 @@
   <br>
 <%= link_to 'New Post', new_post_path %>
 <a href="https://www.embalses.net/embalse-883-la-vinuela.html">
-  <img border="0" src="https://www.embalses.net/webmasters/gen-embalse.php?e=883" 
+  <img border="0" src="https://www.embalses.net/embalse-883-la-viñuela.html" 
   title="Embalses.net - Estado de los embalses y pantanos de España"/>
 </a>
 </div>
