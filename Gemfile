@@ -60,3 +60,6 @@ gem 'jquery-rails'
 
 #Autentification
 gem 'devise'
+
+#Gravatar
+gem 'gravatarify'

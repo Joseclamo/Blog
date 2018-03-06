@@ -9,7 +9,7 @@
 
 <p>
   <strong>Autor:</strong>
-  <%= @post.author %>
+  <%= @post.user.username %>
 </p>
 
 <p>
@@ -24,7 +24,7 @@
 <div id="comments">
   <% @post.comments.each do |comment| %>
     <p>
-	    <%= comment.author %> dijo...<br />
+	    <strong><%= comment.user.username %></strong> dijo...<br />
 	    <%= comment.comment_entry %>
 	  </p>
     <% end %>
