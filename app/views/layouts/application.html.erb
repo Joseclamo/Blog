@@ -44,8 +44,12 @@
 </nav>
   <div class="float-right">
     <% if user_signed_in? %>
+      <%= image_tag current_user.avatar.url, size:70 if current_user.avatar.url %>
       <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary" %> 
       <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    <%else%>
+      <%= button_to "Logueate", new_user_session_path, :class => "btn btn-primary", :method => :get %>
+      <%= button_to "Registrate", new_user_registration_path, :class => "btn btn-secondary", :method => :get %>
     <% end %>
   </div>
   <div class="container">

@@ -28,7 +28,12 @@
 	    <%= comment.comment_entry %>
 	  </p>
     <% end %>
-    <%= render 'comments/form', comment: @comment %>
+
+    <%if user_signed_in?%>
+      <%= render 'comments/form', comment: @comment %>
+    <%else%>
+      <p>Los usuarios no registrados no pueden comentar. O tu registrar o tu te pirar.</p>
+    <%end%>
 </div>
 
 <p>

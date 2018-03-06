@@ -63,3 +63,6 @@ gem 'devise'
 
 #Gravatar
 gem 'gravatarify'
+
+#Carrierwave
+gem 'carrierwave'
