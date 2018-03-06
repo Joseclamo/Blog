@@ -66,3 +66,6 @@ gem 'gravatarify'
 
 #Carrierwave
 gem 'carrierwave'
+
+#Kaminari
+gem 'kaminari'

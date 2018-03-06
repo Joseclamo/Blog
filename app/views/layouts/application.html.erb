@@ -7,51 +7,46 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  </head>    
+
 
   <body>
-<nav class="navbar navbar-expand-lg bg-dark">
-  <a class="navbar-brand" href="#"></a>
-    <img src="/assets/jose_teaser.jpg" width="60" height="40" class="d-inline-block align-top" alt="">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
-      data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" 
-      aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <img src="/assets/jose_teaser.jpg" width="60" height="40" class="d-inline-block align-top" alt="">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Inicio</a>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#"><Home> <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <%= link_to "Posts", posts_path%>
+        <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-        <div>
-        <form class="form-inline my-2 my-lg-0" class="margin-right">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        </div>
-        <div>
+        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-  </div>
-  </a>
-</nav>
-  <div class="float-right">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+      <div class="float-right">
     <% if user_signed_in? %>
-      <%= image_tag current_user.avatar.url, size:70 if current_user.avatar.url %>
       <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary" %> 
+            <%= image_tag current_user.avatar.url, size:70 if current_user.avatar.url %>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
     <%else%>
       <%= link_to "Logueate", new_user_session_path, class: "btn btn-primary" %>
       <%= button_to "Registrate", new_user_registration_path, :class => "btn btn-secondary", :method => :get %>
     <% end %>
   </div>
+  </div>
+</nav>
+
   <div class="container">
 
     <%= yield %>

@@ -13,8 +13,9 @@
           </div>
           <div class="card-body">
             <label for=""><small class="text-muted"> Escrito por <%= post.user.username %></small></label>
+            
             <div class="form: {style: 'display:inline-block;'}">             
-              <div class="alert alert-success" role="alert", class="card-text"><%= post.blog_entry %></br></br>
+              <div class="alert alert-success" role="alert", class="card-text"><%= sanitize post.blog_entry %></br></br>
                 <div class="btn-group"> 
                   <p><%= button_to "Mostrar", post, :class => "btn btn-primary", :method => :get %></p>
                   <p><%= button_to "Editar", edit_post_path(post), :class => "btn btn-success", :method => :get %></p>
