@@ -1,0 +1,40 @@
+</br>
+<p>Estos son todos los posts de <strong><%=@user.username%></strong></p>
+
+<div class="container">
+  <% @posts.each do |post|%>
+    <strong><%= post.title.upcase %></strong></br>
+      </br>
+      <%= image_tag ("#{post.id}.jpg"), size:300 %>
+      </br>
+      </br>
+      <div class="form: {style: 'display:inline-block;'}">
+        <div class="alert alert-success" role="alert" , class="card-text">
+          <%= sanitize post.blog_entry %>
+          </br>
+          </br>
+            <div class="btn-group">
+              <p>
+                <%= button_to "Mostrar", post, :class => "btn btn-primary", :method => :get %>
+              </p>
+              <p>
+                <%= button_to "Editar", edit_post_path(post), :class => "btn btn-success", :method => :get %>
+              </p>
+              <p>
+                <%= button_to 'Borrar', post, :class => "btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %>
+              </p>
+              <p>
+                <h6>Creado el día</h6>
+                <%= post.created_at %>
+              </p>
+            </div>
+            </br>
+        </div>
+      </div>
+      
+  <% end %>
+
+
+
+
+<%= paginate @posts %>

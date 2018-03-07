@@ -15,6 +15,11 @@ class PostsController < ApplicationController
     @comment = Comment.new
   end
 
+  def user_posts
+    @user = User.find_by(Username: params[:name])
+    @posts = @user.posts.page(params[:page])
+  end
+
   def created_at
     @created_at = Post.created_at
   end
