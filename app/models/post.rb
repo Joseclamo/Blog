@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
     mount_uploader :imagen, ImagenUploader
 
-    paginates_per 2
+    paginates_per 3
 
 
 end

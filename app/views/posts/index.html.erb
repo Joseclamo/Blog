@@ -4,32 +4,33 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
-  <div class="row">
     <% @posts.each do |post| %>
-      <div class="col-md-6">
         <div class="card">
           <div class="card-header">
             <h3><%= link_to post.title, post %></h3>
           </div>
           <div class="card-body">
             <label for=""><small class="text-muted"> Escrito por <%= link_to post.user.username, user_posts_path(name:post.user.username) %></small></label>
-            <%= image_tag current_user.avatar.url, size:30 if current_user %></br> 
-            <%= image_tag post.imagen.url, size:300 if post.imagen.url %>    
+            <%= image_tag post.user.avatar.url, size:30 if post.user.avatar.url %></br> 
             <div class="form: {style: 'display:inline-block;'}">
-              <div class="alert alert-success" role="alert", class="card-text"><%= sanitize post.blog_entry %></br></br>
+              <div class="alert alert-success" role="alert", class="card-text"> 
+              <p class="imagen px-4 py-2"><%= image_tag post.imagen.url, size:300 if post.imagen.url %></p>  
+              <%= sanitize post.blog_entry %></br></br>
                 <div class="btn-group"> 
                   <p><%= button_to "Mostrar", post, :class => "btn btn-primary", :method => :get %></p>
-                  <p><%= button_to "Editar", edit_post_path(post), :class => "btn btn-success", :method => :get %></p>
-                  <p><%= button_to 'Borrar', post, :class => "btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                   <%if user_signed_in? && post.user.id == current_user.id %>
+                    <p><%= button_to "Editar", edit_post_path(post), :class => "btn btn-success", :method => :get %></p>
+                    <p><%= button_to 'Borrar', post, :class => "btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                  <%end%>
                   <p><h6>Creado el día</h6><%= post.created_at %></p>
                 </div></br>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      
     <% end %>
-  </div>
+  
   <%= paginate @posts %>
   <div>
   <br>
