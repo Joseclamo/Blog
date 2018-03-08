@@ -3,6 +3,8 @@ class PostsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
   # GET /posts
   # GET /posts.json
   def index
@@ -83,4 +85,12 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :author, :blog_entry, :user_id, :imagen)
     end
+
+    def correct_user
+      @post = Post.find_by(id: params[:id])
+      unless current_user.id == @post.user.id
+        redirect_to @post
+      end
+    end
+
 end
