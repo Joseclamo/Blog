@@ -1,54 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%=yield(:page_title)%> | Blog0</title>
+    <title><%=yield(:page_title)%> | Blog</title>
     <%= csrf_meta_tags %>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>    
 
-
   <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
- <img src="/assets/jose_teaser.jpg" width="60" height="40" class="d-inline-block align-top" alt="">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-      <div class="float-right">
-    <% if user_signed_in? %>
-      <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary" %> 
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-      <%= image_tag current_user.avatar.url, size:50 if current_user.avatar.url %>
-    <%else%>
-      <%= link_to "Logueate", new_user_session_path, class: "btn btn-primary" %>
-      <%= button_to "Registrate", new_user_registration_path, :class => "btn btn-secondary", :method => :get %>
-    <% end %>
-  </div>
-  </div>
-</nav>
-
-  <div class="container">
-
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <img src="/assets/jose_teaser.jpg" width="60" height="40" class="d-inline-block align-top" alt="">
+        <%= link_to "Inicio", root_path, class:"navbar-brand"%>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <%= link_to "Mi LinkedIn", href="https://www.linkedin.com/in/joseclamo/", target:"_blank", class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+          <div class="float-right">
+            <% if user_signed_in? %>
+              <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary" %> 
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+              <%= image_tag current_user.avatar.url, size:50 if current_user.avatar.url %>
+            <%else%>
+              <%= link_to "Logueate", new_user_session_path, class: "btn btn-primary" %>
+              <%= button_to "Registrate", new_user_registration_path, :class => "btn btn-secondary", :method => :get %>
+            <% end %>
+          </div>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
